@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "761977439412",
+    "project_id": "vamos-007",
+    "storage_bucket": "vamos-007.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761977439412:android:e591ecc55453f3b90c43e1",
+        "android_client_info": {
+          "package_name": "com.vamos"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIsIgGpFdA4nc4AvnaLLqhrNiomrXXW7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

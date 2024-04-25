@@ -1,0 +1,13 @@
+npx create-expo-app VamosEventMate -t expo-template-blank-typescript
+cd VamosEventMate
+
+npx expo install firebase
+
+#Navigation
+npm install @react-navigation/native @react-navigation/native-stack
+npx expo install react-native-screens react-native-safe-area-context
+
+npx expo start
+
+// -->> add firebase config
+npx expo customize metro.config.js
