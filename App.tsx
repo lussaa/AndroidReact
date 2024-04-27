@@ -1,15 +1,42 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet } from 'react-native';
 import Login from "./app/screens/Login";
+import {useEffect, useState} from "react";
+import MyPage from "./app/screens/MyPage";
+import EventList from "./app/screens/EventList";
+import { onAuthStateChanged, User } from 'firebase/auth';
+import { FIREBASE_AUTH } from './FirebaseConfig';
+
+
 
 const Stack = createNativeStackNavigator();
+const InsideStack = createNativeStackNavigator();
+
+function InsideLayout(){
+  return (
+      <InsideStack.Navigator>
+        <InsideStack.Screen name="Event list" component={EventList} />
+        <InsideStack.Screen name="myPage" component={MyPage} />
+      </InsideStack.Navigator>
+  )
+}
 
 export default function App() {
+  const [user, setUser] = useState<User | null >(null);
+
+  useEffect(() => {
+      onAuthStateChanged(FIREBASE_AUTH, (user) => {
+          setUser(user);
+      })
+  }, []);
   return (
     <NavigationContainer>
         <Stack.Navigator initialRouteName='Login'>
-          <Stack.Screen name="Login" component={Login} options={{headerShown: false}}  />
+          {(user?
+              <Stack.Screen name="Inside" component={EventList} options={{headerShown: false}}  /> :
+              <Stack.Screen name="Login" component={Login} options={{headerShown: false}}  />)}
+
         </Stack.Navigator>
     </NavigationContainer>
   );
