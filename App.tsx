@@ -16,7 +16,7 @@ const InsideStack = createNativeStackNavigator();
 function InsideLayout(){
   return (
       <InsideStack.Navigator>
-        <InsideStack.Screen name="Event list" component={EventList} />
+        <InsideStack.Screen name="eventList" component={EventList} />
         <InsideStack.Screen name="myPage" component={MyPage} />
       </InsideStack.Navigator>
   )
@@ -32,9 +32,9 @@ export default function App() {
   }, []);
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName='Login'>
+        <Stack.Navigator initialRouteName='eventList'>
           {(user?
-              <Stack.Screen name="Inside" component={EventList} options={{headerShown: false}}  /> :
+              <Stack.Screen name="Inside" component={InsideLayout} options={{headerShown: false}}  /> :
               <Stack.Screen name="Login" component={Login} options={{headerShown: false}}  />)}
 
         </Stack.Navigator>
