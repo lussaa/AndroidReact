@@ -1,26 +1,16 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import Login from "./app/screens/Login";
 import {useEffect, useState} from "react";
-import MyPage from "./app/screens/MyPage";
-import EventList from "./app/screens/EventList";
+import BottomNavigation from "./app/components/BottomNavigation";
 import { onAuthStateChanged, User } from 'firebase/auth';
-import { FIREBASE_AUTH } from './FirebaseConfig';
-
+import { FIREBASE_AUTH } from './app/managers/FirebaseManager';
+import Test from './app/screens/Test';
 
 
 const Stack = createNativeStackNavigator();
-const InsideStack = createNativeStackNavigator();
 
-function InsideLayout(){
-  return (
-      <InsideStack.Navigator>
-        <InsideStack.Screen name="eventList" component={EventList} />
-        <InsideStack.Screen name="myPage" component={MyPage} />
-      </InsideStack.Navigator>
-  )
-}
 
 export default function App() {
   const [user, setUser] = useState<User | null >(null);
@@ -32,9 +22,9 @@ export default function App() {
   }, []);
   return (
     <NavigationContainer>
-        <Stack.Navigator initialRouteName='eventList'>
+        <Stack.Navigator >
           {(user?
-              <Stack.Screen name="Inside" component={InsideLayout} options={{headerShown: false}}  /> :
+              <Stack.Screen name="BottomNavigation" component={BottomNavigation} options={{headerShown: false}}  /> :
               <Stack.Screen name="Login" component={Login} options={{headerShown: false}}  />)}
 
         </Stack.Navigator>

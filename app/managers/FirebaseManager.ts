@@ -8,7 +8,7 @@ import { getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
+const firebaseManager = {
   apiKey: "AIzaSyArR4LaOuAjm3_FtT5WAEGlYSyiVgkahLU",
   authDomain: "vamos-007.firebaseapp.com",
   projectId: "vamos-007",
@@ -19,7 +19,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const FIREBASE_APP = initializeApp(firebaseConfig);
+export const FIREBASE_APP = initializeApp(firebaseManager);
 export const FIREBASE_AUTH = getAuth(FIREBASE_APP);
-export const FIRESTORE_DB = getFirestore(FIREBASE_APP);
+export const DB = getFirestore(FIREBASE_APP);
 // const analytics = getAnalytics(app);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {View, Text, StyleSheet, Button, TextInput, ActivityIndicator, KeyboardAvoidingView} from 'react-native';
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from'firebase/auth';
-import { FIREBASE_AUTH } from '../../FirebaseConfig';
+import { FIREBASE_AUTH } from '../managers/FirebaseManager';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -42,13 +42,13 @@ const Login = () => {
     return (
         <View style={styles.container} >
             <KeyboardAvoidingView behavior={"padding"}>
-                <TextInput value={email} style={styles.input} placeholder='Email' autoCapitalize="none" onChangeText={(text) => setEmail(text)}>
+                <TextInput value={email} style={styles.input} placeholder='e-mail/username' autoCapitalize="none" onChangeText={(text) => setEmail(text)}>
                 </TextInput>
                 <TextInput secureTextEntry={true} value={password} style={styles.input} placeholder='Password' autoCapitalize="none" onChangeText={(text) => setPassword(text)}>
                            </TextInput>
                 { loading ? (<ActivityIndicator size="large" color="#0000ff" /> ) :
                     ( <>
-                    <Button title="Login" onPress={ signIn} />
+                    <Button title="Login" onPress={signIn} />
                     <Button title="Create account" onPress={signUp} />
                     </>
                         )}
