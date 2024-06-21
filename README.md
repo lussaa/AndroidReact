@@ -6,7 +6,7 @@ https://reactnative.dev/docs/running-on-device
 
 npx expo run:android	
 
-# docs React Firebase: https://rnfirebase.io/database/usage
+
 
 Install some dependencies:
 npm install --save @react-native-firebase/app
