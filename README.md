@@ -1,4 +1,4 @@
-REACT JS app using firebase as backend
+REACT JS app using firebase (with firestore db) as backend
 
 Follow these insrtuctions to setup your phone as a debugging device for the app:
 https://reactnative.dev/docs/running-on-device
