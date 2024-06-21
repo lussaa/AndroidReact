@@ -22,11 +22,11 @@ const BottomNavigation = () => {
         fontWeight: 'normal'
       },
   }}>
-                <Tab.Screen name="EventList" component={EventList} options={{
+                <Tab.Screen name="Event List" component={EventList} options={{
           tabBarLabel: 'EventList',
         }} />
-                <Tab.Screen name="My" component={MyPage} />
-                <Tab.Screen name="Create" component={CreateEvent} />
+                <Tab.Screen name="Profile" component={MyPage} />
+                <Tab.Screen name="Create event" component={CreateEvent} />
             </Tab.Navigator>
 
         </View>
